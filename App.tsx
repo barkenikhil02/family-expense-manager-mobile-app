@@ -7,6 +7,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import MainTabScreen from './src/navigation/MainTabScreen';
 export const usersCollection = firestore().collection('BarkeFamily');
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import CustomListComponent from './src/components/CustomListComponent';
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
   const backgroundStyle = {
@@ -15,9 +17,12 @@ function App() {
   };
   return (
     <SafeAreaProvider style={styles.containr}>
-      <NavigationContainer>
-        <MainTabScreen />
-      </NavigationContainer>
+      <GestureHandlerRootView>
+        <NavigationContainer>
+          <MainTabScreen />
+        </NavigationContainer>
+        {/* <CustomListComponent /> */}
+      </GestureHandlerRootView>
     </SafeAreaProvider>
   );
 }

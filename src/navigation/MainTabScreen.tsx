@@ -5,6 +5,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import HomeScreen from '../screens/homeScreen';
 import ReportScreen from '../screens/reportScreen';
 import { AppToast } from '../components/Toast';
+import QRCodeScanner from '../components/QRCodeScanner';
+import CustomListComponent from '../components/CustomListComponent';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
@@ -12,12 +14,12 @@ const ReportStack = createStackNavigator();
 
 const HomeStackScreen = () => (
     <HomeStack.Navigator screenOptions={{ headerShown: false }}>
-        <HomeStack.Screen name="Home" component={HomeScreen} />
+        <HomeStack.Screen name="Home" component={CustomListComponent} />
     </HomeStack.Navigator>
 );
 const ReportStackScreen = () => (
     <ReportStack.Navigator screenOptions={{ headerShown: false }}>
-        <HomeStack.Screen name="Report" component={ReportScreen} />
+        <HomeStack.Screen name="Report" component={QRCodeScanner} />
     </ReportStack.Navigator>
 );
 
@@ -41,7 +43,7 @@ const MainTabScreen = () => (
                 name="HomeScreen"
                 component={HomeStackScreen}
                 options={{
-                    title: 'Home',
+                    title: 'List',
                     tabBarIcon: ({ color, focused }) => (
                         // <Animatable.View duration={2000} iterationDelay={5000} useNativeDriver animation={focused ? "tada" : ''} iterationCount={focused ? 'infinite' : ''}>
                         <Icon name="home" size={24} color={color} />
@@ -54,7 +56,7 @@ const MainTabScreen = () => (
                 name="Report"
                 component={ReportStackScreen}
                 options={{
-                    title: 'Report',
+                    title: 'Qr',
                     tabBarIcon: ({ color, focused }) => (
                         // <Animatable.View duration={2000} iterationDelay={5000} useNativeDriver animation={focused ? "tada" : ''} iterationCount={focused ? 'infinite' : ''}>
                         <Icon name="home" size={24} color={color} />
